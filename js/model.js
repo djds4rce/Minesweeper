@@ -59,7 +59,7 @@ MinsweeperGame.Model = (function(){
 		return !(boxId <=  MinsweeperGame.Config.columns) && (bombs[boxId-MinsweeperGame.Config.columns] ===-1) ? 1 : 0;
 	},
 	bombBelowCell:function(boxId){		
-		return !((MinsweeperGame.Config.total-boxId) <= MinsweeperGame.Config.columns) && (bombs[boxId+MinsweeperGame.Config.columns] ===-1) ? 1 : 0;
+		return !((MinsweeperGame.Config.total-boxId) < MinsweeperGame.Config.columns) && (bombs[boxId+MinsweeperGame.Config.columns] ===-1) ? 1 : 0;
 	},
 	bombleftCell:function(boxId){
 		return !(boxId%MinsweeperGame.Config.columns ===1) && (bombs[boxId-1] === -1 )? 1 : 0;
