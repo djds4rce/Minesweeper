@@ -1,3 +1,4 @@
+'use strict';
 MinsweeperGame.View = (function(){
 	var viewPortWidth,viewPortHeight,main,game,box;
 	return {
@@ -9,28 +10,28 @@ MinsweeperGame.View = (function(){
 
 			viewPortWidth = MinsweeperGame.Config.columns* 50;
 			viewPortHeight = MinsweeperGame.Config.rows * 50;
-			$("#content").html(main({
+			$('#content').html(main({
 				viewPortWidth:viewPortWidth,
 				viewPortHeight: viewPortHeight
 			}));
 			this.loadInitialUI();
 		},
 		loadInitialUI:function(){
-			$("#game-container").html(game({
+			$('#game-container').html(game({
 				totalBoxes:MinsweeperGame.Config.total,
 				isEndGame:false
 			}));
 		},
 		gameOver:function(){
-			$("#game-container").html(game({
+			$('#game-container').html(game({
 				totalBoxes:MinsweeperGame.Config.total,
 				isEndGame:true
 			}));
 		},
 		showAdjecentBombs:function(boxDom,boxStatus){
-			boxDom.removeClass("alert-dark");
-			boxDom.addClass("alert-success");
-			boxDom.find(".box-content").html(boxStatus);
+			boxDom.removeClass('alert-dark');
+			boxDom.addClass('alert-success');
+			boxDom.find('.box-content').html(boxStatus);
 		}
-	}
+	};
 })();

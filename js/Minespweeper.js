@@ -1,4 +1,4 @@
-
+'use strict';
 MinsweeperGame.Controller =(function () { 
 	return {
 	    init: function() {
@@ -10,9 +10,9 @@ MinsweeperGame.Controller =(function () {
 	   	},
 	    handleGameEvents:function(){
 	    	var that = this;
-	    	$(".box").off('click');
-	        $(".box").on('click',function(){
-	        	var boxId = $(this).data("boxid");
+	    	$('.box').off('click');
+	        $('.box').on('click',function(){
+	        	var boxId = $(this).data('boxid');
 	        	var boxStatus = MinsweeperGame.Model.boxStatus(boxId+1);
 	        	if(boxStatus === -1){
 	        		that.removeGameEvents();
@@ -25,20 +25,20 @@ MinsweeperGame.Controller =(function () {
 	    },
 	    handleAppEvents:function(){
 	    	var that = this;
-	    	$(".new-game-button").on('click',function(e){
+	    	$('.new-game-button').on('click',function(){
 	    		MinsweeperGame.Model.init();
 	       		MinsweeperGame.View.loadInitialUI();
 	        	that.handleGameEvents();
 	    	});
 	    },
 	    boostrapConfig:function(){
-	    	MinsweeperGame.Config.rows = parseInt($.urlParam("rows")|| MinsweeperGame.Config.rows);
-	    	MinsweeperGame.Config.columns = parseInt($.urlParam("columns")|| MinsweeperGame.Config.columns);
-	    	MinsweeperGame.Config.bombs = parseInt($.urlParam("bombs")|| MinsweeperGame.Config.bombs);
+	    	MinsweeperGame.Config.rows = parseInt($.urlParam('rows')|| MinsweeperGame.Config.rows);
+	    	MinsweeperGame.Config.columns = parseInt($.urlParam('columns')|| MinsweeperGame.Config.columns);
+	    	MinsweeperGame.Config.bombs = parseInt($.urlParam('bombs')|| MinsweeperGame.Config.bombs);
 	    	MinsweeperGame.Config.total = MinsweeperGame.Config.rows*MinsweeperGame.Config.columns;
 	    },
 	    removeGameEvents:function(){
-	    	$(".box").off('click');
+	    	$('.box').off('click');
 	    }
-	}
+	};
 })();

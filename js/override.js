@@ -1,5 +1,6 @@
-Handlebars.registerHelper("repeat", function (times, opts) {
-    var out = "";
+'use strict';
+Handlebars.registerHelper('repeat', function (times, opts) {
+    var out = '';
     var i;
     var data = {};
 
@@ -27,4 +28,4 @@ $.urlParam = function(name){
 
 	}
 	return result;
-}
+};

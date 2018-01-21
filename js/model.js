@@ -1,12 +1,12 @@
+'use strict';
 MinsweeperGame.Model = (function(){
-	bombs:{}
+	var bombs;
 	return {
 	init:function(){
 		this.generateBombLocation();
 	},
 	generateBombLocation:function(){
 		bombs = {};
-		var bombLocation;
 		for(var i=0;i<MinsweeperGame.Config.bombs;i++){
 			this.generateRandomBomb();
 		}		
@@ -16,7 +16,7 @@ MinsweeperGame.Model = (function(){
 	},
 	generateRandomBomb:function(){
 		var bombLocation = this.randomNumberFromRange(1,MinsweeperGame.Config.total);
-		if(!(bombs[bombLocation] == -1)){
+		if(! (bombs[bombLocation] === -1) ){
 			bombs[bombLocation] = -1;
 		}else{
 			this.generateRandomBomb();	
@@ -67,5 +67,5 @@ MinsweeperGame.Model = (function(){
 	bombrightCell:function(boxId){
 		return !(boxId%MinsweeperGame.Config.columns ===0) && (bombs[boxId+1]  === -1)? 1 : 0;
 	}
-}
+};
 })();
