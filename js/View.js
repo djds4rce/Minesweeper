@@ -1,5 +1,5 @@
 MinsweeperGame.View = (function(){
-	var boxWidth,boxHeight,main,game,box;
+	var viewPortWidth,viewPortHeight,main,game,box;
 	return {
 		init:function(){
 			main = Handlebars.compile($('#main-template').html());
